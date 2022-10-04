@@ -18,8 +18,18 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"dbaeumer.vscode-eslint"
-			]
+				"dbaeumer.vscode-eslint",
+				"antfu.file-nesting",
+				"trunk.io",
+				"formulahendry.auto-rename-tag",
+				"dracula-theme.theme-dracula",
+				"EditorConfig.EditorConfig",
+				"miguelsolorio.fluent-icons",
+				"vscode-icons-team.vscode-icons",
+				"quicktype.quicktype",
+				"aaron-bond.better-comments",
+				"GitHub.copilot",
+				"WakaTime.vscode-wakatime"			]
 		}
 	},
 
@@ -27,7 +37,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	"postCreateCommand": "pnpm i",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node"
