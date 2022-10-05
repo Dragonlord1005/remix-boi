@@ -14,4 +14,4 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 # RUN su node -c "npm install -g <your-package-list -here>"
 
 RUN su node -c "curl -fsSL https://get.pnpm.io/install.sh | sh - "
-run su node -c "curl -L https://fly.io/install.sh | sh"
+RUN su node -c "curl -L https://fly.io/install.sh | sh"
