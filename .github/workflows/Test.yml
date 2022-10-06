@@ -17,7 +17,6 @@ jobs:
     name: ⬣ ESLint
     runs-on: ubuntu-latest
     steps:
-
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.10.1
 
@@ -32,7 +31,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
+          cache: "pnpm"
+
+     - name: Install dependencies  
+        run: pnpm i --frozen-lockfile
 
       - name: 🔬 Lint
         run: npm run lint
@@ -55,7 +57,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
+          cache: "pnpm"
+
+      - name: Install dependencies  
+        run: pnpm i --frozen-lockfile
+
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
@@ -78,10 +84,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
-        
-      - name: Install dependencies  
-        run: pnpm i --frozen-lockfile
+          cache: "pnpm"
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
@@ -107,10 +110,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
-          
-      - name: Install dependencies  
-        run: pnpm i --frozen-lockfile
+          cache: "pnpm"
 
       - name: 🛠 Setup Database
         run: npx prisma migrate reset --force
@@ -125,5 +125,3 @@ jobs:
           wait-on: "http://localhost:8811"
         env:
           PORT: "8811"
-
-  
