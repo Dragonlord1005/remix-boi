@@ -1,5 +1,5 @@
 # base node image
-FROM node:16-bullseye-slim as base
+FROM node:16-bullseye as base
 
 # set for base and all layer that inherit from it
 ENV NODE_ENV production
@@ -7,13 +7,15 @@ ENV NODE_ENV production
 # Install openssl for Prisma
 RUN apt-get update && apt-get install -y openssl sqlite3
 
+RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+
 # Install all node_modules, including dev dependencies
 FROM base as deps
 
 WORKDIR /myapp
 
-ADD package.json .npmrc ./
-RUN npm install --production=false
+ADD package.json .npmrc pnpm-lock.yaml ./
+RUN pnpm install --production=false
 
 # Setup production node_modules
 FROM base as production-deps
@@ -21,8 +23,8 @@ FROM base as production-deps
 WORKDIR /myapp
 
 COPY --from=deps /myapp/node_modules /myapp/node_modules
-ADD package.json .npmrc ./
-RUN npm prune --production
+ADD package.json .npmrc pnpm-lock.yaml ./
+RUN pnpm prune --production
 
 # Build the app
 FROM base as build
@@ -32,10 +34,10 @@ WORKDIR /myapp
 COPY --from=deps /myapp/node_modules /myapp/node_modules
 
 ADD prisma .
-RUN npx prisma generate
+RUN pnpm exec prisma generate
 
 ADD . .
-RUN npm run build
+RUN pnpm run build
 
 # Finally, build the production image with minimal footprint
 FROM base
