@@ -23,6 +23,9 @@ export default function Index() {
                   Indie Stack
                 </span>
               </h1>
+              <Link to="posts/admin" className="text-red-600 underline">
+                Admin
+              </Link>
               <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
                 Check the README.md file for instructions on how to get this
                 project deployed.
@@ -64,6 +67,14 @@ export default function Index() {
         </div>
 
         <div className="mx-auto max-w-7xl py-2 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mt-16 max-w-7xl text-center">
+            <Link
+              to="posts"
+              className="text-xl text-blue-600 underline"
+              >
+                Blog Posts
+              </Link>
+          </div>
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
