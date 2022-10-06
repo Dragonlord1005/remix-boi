@@ -7,10 +7,10 @@ import { createPost } from "~/models/post.server";
 
 type ActionData =
   | {
-    title: null | string;
-    slug: null | string;
-    markdown: null | string;
-  }
+      title: null | string;
+      slug: null | string;
+      markdown: null | string;
+    }
   | undefined;
 
 export const action: ActionFunction = async ({ request }) => {
@@ -28,25 +28,14 @@ export const action: ActionFunction = async ({ request }) => {
     slug: slug ? null : "Slug is required",
     markdown: markdown ? null : "Markdown is required",
   };
-  const hasErrors = Object.values(errors).some(
-    (errorMessage) => errorMessage
-  );
+  const hasErrors = Object.values(errors).some((errorMessage) => errorMessage);
   if (hasErrors) {
     return json<ActionData>(errors);
   }
 
-  invariant(
-    typeof title === "string",
-    "title must be a string"
-  );
-  invariant(
-    typeof slug === "string",
-    "slug must be a string"
-  );
-  invariant(
-    typeof markdown === "string",
-    "markdown must be a string"
-  );
+  invariant(typeof title === "string", "title must be a string");
+  invariant(typeof slug === "string", "slug must be a string");
+  invariant(typeof markdown === "string", "markdown must be a string");
 
   await createPost({ title, slug, markdown });
 
@@ -69,11 +58,7 @@ export default function NewPost() {
           {errors?.title ? (
             <em className="text-red-600">{errors.title}</em>
           ) : null}
-          <input
-            type="text"
-            name="title"
-            className={inputClassName}
-          />
+          <input type="text" name="title" className={inputClassName} />
         </label>
       </p>
       <p>
@@ -82,15 +67,12 @@ export default function NewPost() {
           {errors?.slug ? (
             <em className="text-red-600">{errors.slug}</em>
           ) : null}
-          <input
-            type="text"
-            name="slug"
-            className={inputClassName}
-          />
+          <input type="text" name="slug" className={inputClassName} />
         </label>
       </p>
       <p>
-        <label htmlFor="markdown">Markdown:{" "}
+        <label htmlFor="markdown">
+          Markdown:{" "}
           {errors?.markdown ? (
             <em className="text-red-600">{errors.markdown}</em>
           ) : null}
@@ -113,5 +95,5 @@ export default function NewPost() {
         </button>
       </p>
     </Form>
-  )
+  );
 }

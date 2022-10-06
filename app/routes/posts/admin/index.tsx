@@ -7,5 +7,5 @@ export default function AdminIndex() {
         Create a New Post
       </Link>
     </p>
-  )
+  );
 }
