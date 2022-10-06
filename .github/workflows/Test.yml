@@ -79,6 +79,7 @@ jobs:
         with:
           node-version: 16
           cache: 'pnpm'
+        run: pnpm i --frozen-lockfile
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
@@ -105,6 +106,7 @@ jobs:
         with:
           node-version: 16
           cache: 'pnpm'
+        run: pnpm i --frozen-lockfile
 
       - name: 🛠 Setup Database
         run: npx prisma migrate reset --force
