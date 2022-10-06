@@ -9,4 +9,5 @@ set -ex
 
 curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 npx prisma migrate deploy
+npx prisma generate
 pnpm run start
