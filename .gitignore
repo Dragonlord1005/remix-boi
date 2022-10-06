@@ -17,3 +17,7 @@ node_modules
 /prisma/data.db-journal
 
 /app/styles/tailwind.css
+
+/api
+prisma/migrations/migration_lock.toml
+api/
