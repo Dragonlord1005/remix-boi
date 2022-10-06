@@ -6,5 +6,8 @@
 # Learn more: https://community.fly.io/t/sqlite-not-getting-setup-properly/4386
 
 set -ex
+
+curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 npx prisma migrate deploy
-npm run start
+npx prisma generate
+pnpm run start
