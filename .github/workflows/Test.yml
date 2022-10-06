@@ -79,6 +79,8 @@ jobs:
         with:
           node-version: 16
           cache: 'pnpm'
+        
+      - name: Install dependencies  
         run: pnpm i --frozen-lockfile
 
       - name: ⚡ Run vitest
@@ -106,6 +108,8 @@ jobs:
         with:
           node-version: 16
           cache: 'pnpm'
+          
+      - name: Install dependencies  
         run: pnpm i --frozen-lockfile
 
       - name: 🛠 Setup Database
