@@ -14,6 +14,8 @@ FROM base as deps
 
 WORKDIR /myapp
 
+# TODO: use COPY instead of ADD
+
 ADD package.json .npmrc pnpm-lock.yaml ./
 RUN pnpm install --production=false
 
