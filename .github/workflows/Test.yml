@@ -58,7 +58,7 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
+        run: pnpm i --frozen-lockfile && pnpm exec prisma generate
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
@@ -116,7 +116,7 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: 🛠 Setup Database
-        run: npx prisma migrate reset --force
+        run: npx prisma generate && npx prisma migrate reset --force
 
       - name: ⚙️ Build
         run: pnpm run build
