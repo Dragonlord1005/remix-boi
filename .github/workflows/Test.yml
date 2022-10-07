@@ -124,7 +124,7 @@ jobs:
         run: pnpm run build
 
       - name: Install Cypress
-      # This if or when it's not wanting to work
+      # This is for when it's not wanting to work
         run: npx cypress install
 
       - name: 🌳 Cypress run
