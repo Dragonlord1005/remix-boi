@@ -125,7 +125,7 @@ jobs:
 
       - name: Install Cypress
       # This is for when it's not wanting to work
-        run: npx cypress install
+        run: pnpm exec cypress install
 
       - name: 🌳 Cypress run
         uses: cypress-io/github-action@v4
