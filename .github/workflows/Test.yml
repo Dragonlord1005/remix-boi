@@ -89,49 +89,49 @@ jobs:
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
 
-  cypress:
-    name: ⚫️ Cypress
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.10.1
+  # cypress:
+  #   name: ⚫️ Cypress
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 🛑 Cancel Previous Runs
+  #       uses: styfle/cancel-workflow-action@0.10.1
 
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v3
+  #     - name: ⬇️ Checkout repo
+  #       uses: actions/checkout@v3
 
-      # - name: 🏄 Copy test env vars
-      #   run: cp .env.example .env
+  #     # - name: 🏄 Copy test env vars
+  #     #   run: cp .env.example .env
 
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7
+  #     - uses: pnpm/action-setup@v2.2.2
+  #       with:
+  #         version: 7
 
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "pnpm"
+  #     - name: ⎔ Setup node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #         cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile && pnpm exec cypress install
+  #     - name: Install dependencies
+  #       run: pnpm i --frozen-lockfile && pnpm exec cypress install
 
-      - name: 🛠 Setup Database
-        run: npx prisma generate && npx prisma migrate reset --force
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  #     - name: 🛠 Setup Database
+  #       run: npx prisma generate && npx prisma migrate reset --force
+  #       env:
+  #         DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-      - name: ⚙️ Build
-        run: pnpm run build
+  #     - name: ⚙️ Build
+  #       run: pnpm run build
 
-      # - name: Install Cypress
-      # # This is for when it's not wanting to work
-      #   run: pnpm exec cypress install
+  #     # - name: Install Cypress
+  #     # # This is for when it's not wanting to work
+  #     #   run: pnpm exec cypress install
 
-      # TODO: Fix Cypress runs
-      - name: 🌳 Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-          start: pnpm run start:mocks
-          wait-on: "http://localhost:8811"
-        env:
-          PORT: "8811"
+  #     # TODO: Fix Cypress runs
+  #     - name: 🌳 Cypress run
+  #       uses: cypress-io/github-action@v4
+  #       with:
+  #         start: pnpm run start:mocks
+  #         wait-on: "http://localhost:8811"
+  #       env:
+  #         PORT: "8811"
