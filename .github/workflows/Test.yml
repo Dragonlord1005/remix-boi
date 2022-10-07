@@ -99,8 +99,8 @@ jobs:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: 🏄 Copy test env vars
-        run: cp .env.example .env
+      # - name: 🏄 Copy test env vars
+      #   run: cp .env.example .env
 
       - uses: pnpm/action-setup@v2.2.2
         with:
@@ -117,6 +117,8 @@ jobs:
 
       - name: 🛠 Setup Database
         run: npx prisma generate && npx prisma migrate reset --force
+        env:
+          DATABASE_URL: {{ secrets.DATABASE_URL }}
 
       - name: ⚙️ Build
         run: pnpm run build
