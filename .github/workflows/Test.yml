@@ -123,6 +123,10 @@ jobs:
       - name: ⚙️ Build
         run: pnpm run build
 
+      - name: Install Cypress
+      # This if or when it's not wanting to work
+        run: npx cypress install
+
       - name: 🌳 Cypress run
         uses: cypress-io/github-action@v4
         with:
