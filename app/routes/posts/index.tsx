@@ -19,11 +19,11 @@ export default function Posts() {
   console.log(posts);
   return (
     <main>
-      <h1>Posts</h1>
+      <h1 className="my-6 mb-2 border-b-2 text-center text-3xl">Posts</h1>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link to={post.slug} className="text-blue-600 underline">
+            <Link to={post.slug} className="text-blue-600 underline ml-8 mt-4">
               {post.title}
             </Link>
           </li>
