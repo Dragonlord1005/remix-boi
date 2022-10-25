@@ -30,7 +30,7 @@ specifiers:
   c8: 7.12.0
   cookie: 0.5.0
   cross-env: 7.0.3
-  cypress: 10.9.0
+  cypress: 10.11.0
   eslint: 8.24.0
   eslint-config-prettier: 8.5.0
   eslint-plugin-cypress: 2.12.1
@@ -73,7 +73,7 @@ devDependencies:
   '@faker-js/faker': 7.5.0
   '@remix-run/dev': 1.7.2_63cxfdg5f5bb4xpkk3vcjfcl3q
   '@remix-run/eslint-config': 1.7.2_2arap3zrpdsgaavggmaateumgu
-  '@testing-library/cypress': 8.0.3_cypress@10.9.0
+  '@testing-library/cypress': 8.0.3_cypress@10.11.0
   '@testing-library/dom': 8.18.1
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -92,7 +92,7 @@ devDependencies:
   c8: 7.12.0
   cookie: 0.5.0
   cross-env: 7.0.3
-  cypress: 10.9.0
+  cypress: 10.11.0
   eslint: 8.24.0
   eslint-config-prettier: 8.5.0_eslint@8.24.0
   eslint-plugin-cypress: 2.12.1_eslint@8.24.0
@@ -2060,7 +2060,7 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@testing-library/cypress/8.0.3_cypress@10.9.0:
+  /@testing-library/cypress/8.0.3_cypress@10.11.0:
     resolution: {integrity: sha512-nY2YaSbmuPo5k6kL0iLj/pGPPfka3iwb3kpTx8QN/vOCns92Saz9wfACqB8FJzcR7+lfA4d5HUOWqmTddBzczg==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -2068,7 +2068,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.0
       '@testing-library/dom': 8.18.1
-      cypress: 10.9.0
+      cypress: 10.11.0
     dev: true
 
   /@testing-library/dom/8.18.1:
@@ -3655,8 +3655,8 @@ packages:
     resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
     dev: true
 
-  /cypress/10.9.0:
-    resolution: {integrity: sha512-MjIWrRpc+bQM9U4kSSdATZWZ2hUqHGFEQTF7dfeZRa4MnalMtc88FIE49USWP2ZVtfy5WPBcgfBX+YorFqGElA==}
+  /cypress/10.11.0:
+    resolution: {integrity: sha512-lsaE7dprw5DoXM00skni6W5ElVVLGAdRUUdZjX2dYsGjbY/QnpzWZ95Zom1mkGg0hAaO/QVTZoFVS7Jgr/GUPA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
